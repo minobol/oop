@@ -1,0 +1,51 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Market implements QueueBehaviour, MarketBehaviour {
+    private Queue<Person> queue;
+    private Queue<Order> orders;
+
+    public Market() {
+        queue = new LinkedList<>();
+        orders = new LinkedList<>();
+    }
+
+    @Override
+    public void enqueue(Person person) {
+        queue.add(person);
+    }
+
+    @Override
+    public Person dequeue() {
+        return queue.poll();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return queue.isEmpty();
+    }
+
+    @Override
+    public void addPersonToQueue(Person person) {
+        enqueue(person);
+    }
+
+    @Override
+    public void removePersonFromQueue(Person person) {
+        queue.remove(person);
+    }
+
+    @Override
+    public void processOrders() {
+        while (!orders.isEmpty()) {
+            Order order = orders.poll();
+        
+        }
+    }
+
+    
+    public void update() {
+        processOrders();
+    
+    }
+}
